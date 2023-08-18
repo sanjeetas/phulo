@@ -25,8 +25,24 @@ import msg from "./images/msg.svg"
 import article from "./images/article-ph-1.png"
 import map from "./images/code.svg"
 import MySlider from './MySlider';
-import "./App.css";
+import profile from './Common/profile.pdf';
 
+import "./App.css";
+const downloadFile = () => {
+    // Path to the document file
+    const documentPath = profile;
+
+    // Create an invisible anchor element
+    const link = document.createElement('a');
+    link.href = documentPath;
+    link.target = '_blank'; // Open in a new tab or window
+
+    // Trigger the download
+    link.download = 'document.pdf'; // Set the downloaded file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
 const App = () => {
   return (
     <div className="App">
@@ -41,7 +57,7 @@ const App = () => {
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Work</a></li>
+                {/* <li><a href="#">Work</a></li> */}
                 <li><a href="#">Blog</a></li>
             </ul>
         </div>
@@ -61,7 +77,7 @@ const App = () => {
                         </div>
                     </div>
                     <div class="right">
-                        <button class="btn btn-primary">Contact</button>
+                        <button class="btn btn-primary"><a href="tel:8451010020">Contact</a></button>
                     </div>
                 </nav>
                 <div class="hero flex items-center justify-between">
@@ -73,7 +89,7 @@ const App = () => {
                         <h1>I’m a Creative <span>Designer</span></h1>
                         <p>Phulo Multi graphics(CEO)</p>
                         <div>
-                            <button class="btn btn-secondary">DOWNLOAD CV</button>
+                            <button class="btn btn-secondary" onClick={downloadFile}>DOWNLOAD PROFILE</button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +99,7 @@ const App = () => {
         <section id="about" class="about">
             <div class="container flex items-center about-inner-wrap">
                 <div class="flex-1">
-                    <img class="about-me-img" src={man2} alt=""/>
+                    <img class="about-me-img" src={man} alt=""/>
                 </div>
                 <div class="flex-1 right">
                     <h1>About <span>Me</span></h1>
@@ -145,7 +161,7 @@ const App = () => {
         <section class="freelancer">
             <h1>I Am Available For Desiging.</h1>
             <p>We provide high standar clean Design for your business solutions</p>
-            <button class="btn btn-primary">Download CV</button>
+            <button class="btn btn-primary" onClick={downloadFile}>Download CV</button>
         </section>
         <section class="reviews">
             <div class="container">
@@ -155,7 +171,7 @@ const App = () => {
             </div>
         </section>
 
-        <section id="work" class="work">
+        {/* <section id="work" class="work">
             <div class="container">
                 <h1 class="section-heading"><span>Our</span> Works</h1>
                 <p>We provide high standar clean Desiging for your business solutions</p>
@@ -205,7 +221,7 @@ const App = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section> */}
         <section id="blog" class="blog">
             <div class="container">
                 <h1 class="section-heading"><span>Our</span> Blog</h1>
@@ -257,7 +273,7 @@ const App = () => {
         <section class="contact">
             <div class="container">
                 <h1 class="section-heading">Contact <span>Us</span></h1>
-                <p>We provide high standar Creativity Designing Solutionfor your business solutions</p>
+                <p>We provide high standard Creativity Designing Solutionfor your business solutions</p>
                 <div class="card-wrapper">
                     <div class="card">
                         <img src={phone2}alt=""/>
